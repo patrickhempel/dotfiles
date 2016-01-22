@@ -88,17 +88,28 @@ bindsym $mod+a focus parent
 
 #name workspaces
 
-set $WS3 3:
-set $WS2 2:
-set $WS1 1:
-set $WS4 4:
-set $WS5 5:
-set $WS6 6:
-set $WS7 7:
-set $WS8 8:
-set $WS9 9:
+set $WS1 "1:WEB"
+set $WS2 "2:FILES"
+set $WS3 "3"
+set $WS4 "4"
+set $WS5 "5"
+set $WS6 "6"
+set $WS7 "7"
+set $WS8 "8:CHAT"
+set $WS9 "9"
+
+#set $WS3 3:
+#set $WS2 2:
+#set $WS1 1:
+#set $WS4 4:
+#set $WS5 5:
+#set $WS6 6:
+#set $WS7 7:
+#set $WS8 8:
+#set $WS9 9:
 
 # switch to workspace
+#bindsym $mod+1 workspace $WS1
 bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
 bindsym $mod+3 workspace $WS3
@@ -108,7 +119,7 @@ bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
-bindsym $mod+0 workspace 10
+#bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $WS1 
@@ -178,6 +189,6 @@ bindsym XF86AudioNext exec --no-startup-id ncmpcpp next
 bindsym XF86AudioPrev exec --no-startup-id ncmpcpp prev
 bindsym XF86AudioPlay exec --no-startup-id ncmpcpp toggle
 
-bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% | pkill -RTMIN+1 i3block
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% | pkill -RTMIN+1 i3block
