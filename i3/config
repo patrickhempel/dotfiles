@@ -192,3 +192,9 @@ bindsym XF86AudioPlay exec --no-startup-id ncmpcpp toggle
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% | pkill -RTMIN+1 i3block
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% | pkill -RTMIN+1 i3block
+
+#keyboard layout
+exec "setxkbmap -layouy us,de"
+exec "setxkbmap -option 'grp:alt_shift_toggle'"
+
+exec "xrandr --output eDP-1 --scale 0.75x0.75"
